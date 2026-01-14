@@ -11,9 +11,13 @@ const options = [
   "Show all",
 ];
 
-export default function CustomSelect() {
+interface CustomSelectProps {
+  onFilterChange?: (filter: string) => void;
+}
+
+export default function CustomSelect({ onFilterChange }: CustomSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("A to Z");
+  const [selected, setSelected] = useState("Popular");
   const selectRef = useRef<HTMLDivElement>(null);
 
   const toggle = () => setIsOpen((prev) => !prev);
@@ -21,6 +25,9 @@ export default function CustomSelect() {
   const chooseOption = (option: string) => {
     setSelected(option);
     setIsOpen(false);
+    if (onFilterChange) {
+      onFilterChange(option);
+    }
   };
 
   useEffect(() => {
@@ -39,9 +46,19 @@ export default function CustomSelect() {
       <p className={css.filter_text}>Filters</p>
       <form className={css.form}>
         <div className={css.custom_select} ref={selectRef}>
-          <button type="button" className={css.select_button} onClick={toggle}>
+          <button
+            type="button"
+            className={`${css.select_button} ${
+              isOpen ? css.select_button_open : ""
+            }`}
+            onClick={toggle}
+          >
             {selected}
-            <svg width="20" height="20" className={css.arrow}>
+            <svg
+              width="20"
+              height="20"
+              className={`${css.arrow} ${isOpen ? css.arrow_open : ""}`}
+            >
               <use href="/sprite.svg#icon-down" />
             </svg>
           </button>

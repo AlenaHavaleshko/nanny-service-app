@@ -58,8 +58,23 @@
   font-size: 18px;
   line-height: 111%;
   color: rgba(17, 16, 28, 0.3);
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
 .option:hover {
   color: #11101c;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow_open {
+  transform: rotate(180deg);
+}
+
+.select_button_open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }

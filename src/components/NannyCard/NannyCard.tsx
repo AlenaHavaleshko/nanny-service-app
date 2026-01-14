@@ -129,10 +129,13 @@ export default function NannyCard({ nanny }: NannyProps) {
                     <p className={css.name_full_black}>
                       {review.reviewer.slice(0, 5)}.
                     </p>
-                    <svg className={css.name_full_icon} width={16} height={16}>
-                      <use href="/sprite.svg#icon-star"></use>
-                    </svg>
-                    <p className={css.name_full_text}>{review.rating}</p>
+                    <div className={css.name_wrapper}>
+                      <svg className={css.name_full_icon} width={16} height={16}>
+                        <use href="/sprite.svg#icon-star"></use>
+                      </svg>
+                      <p className={css.name_full_text}>{review.rating}</p>
+                    </div>
+                    
                   </div>
                 </div>
                 <p className={css.review_comment}>{review.comment}</p>

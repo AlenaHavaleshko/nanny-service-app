@@ -177,6 +177,7 @@
   border: none;
   background: transparent;
   margin-right: auto;
+  margin-bottom: 20px;
   padding: 0;
 }
 
@@ -191,6 +192,14 @@
   gap: 12px;
 }
 
+.review_comment {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #11101c;
+  margin: 16px 0 0 0;
+}
+
 .name_one_letter {
   border-radius: 100px;
   width: 44px;
@@ -203,6 +212,30 @@
   font-size: 20px;
   line-height: 100%;
   color: #f03f3b;
+  text-align: center;
+  margin: 12px 0 0 0;
+}
+
+.name_full {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+}
+ 
+.name_full_black {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #11101c;
+  margin: 0;
+}
+
+.name_wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
 }
 
 .name_full_icon {
@@ -222,6 +255,7 @@
 .btn {
   top: 537px;
   left: 168px;
+  margin-top: 48px;
 }
 
 .card_btn {

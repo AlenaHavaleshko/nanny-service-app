@@ -120,7 +120,6 @@ export default function Appointment() {
             ></input>
           </label>
           <label>
-            Meeting time
             <p className={css.color_text}>{errors.number?.message}</p>
             <input
               {...register("meetingTime")}
