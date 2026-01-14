@@ -1,0 +1,167 @@
+import css from "./Appointment.module.css";
+import { useModal } from "../ModalContext/UseModal";
+import * as Yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+interface AppointmentFormData {
+  address: string;
+  tel: string;
+  number: number;
+  meetingTime: string;
+  email: string;
+  text: string;
+  comment: string;
+}
+
+export const AppointmentSchema = Yup.object().shape({
+  address: Yup.string()
+    .min(3, "Address must be at least 3 characters")
+    .required("Address is required"),
+
+  tel: Yup.string()
+    .matches(/^\+?[0-9\s-]+$/, "Invalid phone number format")
+    .required("Phone number is required"),
+
+  number: Yup.number()
+    .typeError("Number must be a number")
+    .positive("Must be positive")
+    .required("Number is required"),
+
+  meetingTime: Yup.string().required("Time is required"),
+
+  email: Yup.string()
+    .email("Invalid email format")
+    .required("Email is required"),
+
+  text: Yup.string()
+    .min(5, "Text must be at least 5 characters")
+    .required("Text is required"),
+  comment: Yup.string().optional().required("Comment is required"),
+});
+
+export default function Appointment() {
+  const { closeModal } = useModal();
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<AppointmentFormData>({
+    resolver: yupResolver(AppointmentSchema),
+  });
+
+  const onSubmit = (data: AppointmentFormData) => {
+    console.log(data);
+    reset();
+    closeModal();
+  };
+  return (
+    <div className={css.appointment}>
+      <button
+        className={css.btn_close}
+        aria-label="Close modal"
+        onClick={closeModal}
+      >
+        <svg width={19} height={19} className={css.close_icon}>
+          <use href="/sprite.svg#icon-x"></use>
+        </svg>
+      </button>
+      <div className={css.appointment_info}>
+        <h2 className={css.appointment_title}>
+          Make an appointment<br></br> with a babysitter
+        </h2>
+        <p className={css.appointment_text}>
+          Arranging a meeting with a caregiver for your child is the first step
+          to creating a safe and comfortable environment. Fill out the form
+          below so we can match you with the perfect care partner.
+        </p>
+      </div>
+      <div className={css.nanny_info}>
+        <div className={css.nanny_photo}>
+          <img
+            className={css.avatar}
+            // src={nanny.avatar_ur}
+            // alt={nanny}
+            width={44}
+            height={44}
+          ></img>
+        </div>
+        <div className={css.nanny_name}>
+          <p className={css.nanny_name_text}>Nanny</p>
+          {/* <p className={css.nanny_name_name}>{nanny.name}</p> */}
+        </div>
+      </div>
+      <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+        <div className={css.form_row}>
+          <input
+            {...register("text")}
+            className={css.input_row}
+            type="text"
+            placeholder="Address"
+          ></input>
+          <p className={css.color_text}>{errors.address?.message}</p>
+          <input
+            {...register("tel")}
+            className={css.input_row}
+            type="tel"
+            placeholder="+380"
+          ></input>
+          <p className={css.color_text}>{errors.tel?.message}</p>
+        </div>
+        <div className={css.form_row}>
+          <label>
+            <input
+              {...register("number")}
+              className={css.input_row}
+              type="number"
+              placeholder="Child's age"
+            ></input>
+          </label>
+          <label>
+            Meeting time
+            <p className={css.color_text}>{errors.number?.message}</p>
+            <input
+              {...register("meetingTime")}
+              className={css.input_row}
+              type="time"
+              placeholder="00:00"
+            ></input>
+            <p className={css.color_text}>{errors.meetingTime?.message}</p>
+          </label>
+        </div>
+
+        <label>
+          <input
+            {...register("email")}
+            className={css.input}
+            type="email"
+            placeholder="Email"
+          ></input>
+          <p className={css.color_text}>{errors.email?.message}</p>
+        </label>
+        <label>
+          <input
+            {...register("text")}
+            className={css.input}
+            type="text"
+            placeholder="Father's or mother's name"
+          ></input>
+          <p className={css.color_text}>{errors.text?.message}</p>
+        </label>
+        <textarea
+          {...register("comment")}
+          className={css.textarea}
+          name="comment"
+          placeholder="Comment"
+          rows={3}
+        />
+        <p className={css.color_text}>{errors.comment?.message}</p>
+        <button className={css.form_btn} type="submit">
+          Send
+        </button>
+      </form>
+    </div>
+  );
+}
