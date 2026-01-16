@@ -3,6 +3,8 @@ import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useModal } from "../ModalContext/UseModal";
+import { useAuth } from "../AuthContext/useAuth";
+import { useState } from "react";
 
 interface RegistrationFormData {
   name: string;
@@ -26,6 +28,9 @@ const Schema = Yup.object().shape({
 
 export default function Registration() {
   const { closeModal } = useModal();
+  const { signUp } = useAuth();
+  const [error, setError] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -34,8 +39,14 @@ export default function Registration() {
     resolver: yupResolver(Schema),
   });
 
-  const onSubmit = (data: RegistrationFormData) => {
-    console.log(data);
+  const onSubmit = async (data: RegistrationFormData) => {
+    try {
+      setError("");
+      await signUp(data.email, data.password, data.name);
+      closeModal();
+    } catch (err: any) {
+      setError(err.message || "Failed to create account");
+    }
   };
 
   return (
@@ -78,11 +89,12 @@ export default function Registration() {
           type="password"
           placeholder="Password"
         />
-        <p>{errors.password?.message}</p>
+        <p className={css.color_text}>{errors.password?.message}</p>
+        {error && <p className={css.color_text}>{error}</p>}
+        <button className={css.btn_signup} type="submit">
+          Sign Up
+        </button>
       </form>
-      <button className={css.btn_signup} onClick={closeModal}>
-        Sign Up
-      </button>
     </div>
   );
 }

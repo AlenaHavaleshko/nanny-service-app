@@ -5,14 +5,17 @@ import App from "./App/App";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ModalProvider } from "./components/ModalContext/ModalProvider";
+import { AuthProvider } from "./components/AuthContext/AuthProvider";
 
 const queryClient = new QueryClient();
 createRoot(document.getElementById("root") as HTMLElement).render(
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
-      <ModalProvider>
-        <App />
-      </ModalProvider>
+      <AuthProvider>
+        <ModalProvider>
+          <App />
+        </ModalProvider>
+      </AuthProvider>
     </BrowserRouter>
   </QueryClientProvider>
 );

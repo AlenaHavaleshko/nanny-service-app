@@ -3,6 +3,8 @@ import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useModal } from "../ModalContext/UseModal";
+import { useAuth } from "../AuthContext/useAuth";
+import { useState } from "react";
 
 interface LoginFormData {
   email: string;
@@ -21,6 +23,8 @@ const Schema = Yup.object().shape({
 
 export default function Login() {
   const { closeModal } = useModal();
+  const { signIn } = useAuth();
+  const [error, setError] = useState("");
 
   const {
     register,
@@ -30,8 +34,14 @@ export default function Login() {
     resolver: yupResolver(Schema),
   });
 
-  const onSubmit = (data: LoginFormData) => {
-    console.log(data);
+  const onSubmit = async (data: LoginFormData) => {
+    try {
+      setError("");
+      await signIn(data.email, data.password);
+      closeModal();
+    } catch (err: any) {
+      setError(err.message || "Failed to log in");
+    }
   };
 
   return (
@@ -67,10 +77,11 @@ export default function Login() {
           placeholder="Password"
         />
         <p className={css.color_text}>{errors.password?.message}</p>
+        {error && <p className={css.color_text}>{error}</p>}
+        <button className={css.btn_login} type="submit">
+          Log In
+        </button>
       </form>
-      <button className={css.btn_login} onClick={closeModal}>
-        Log In
-      </button>
     </div>
   );
 }
