@@ -7,5 +7,8 @@ const API_URL =
 export async function getNannies(): Promise<Nanny[]> {
   const res = await axios.get(API_URL);
   const data = res.data;
-  return data;
+
+  if (!data) return [];
+
+  return Object.values(data);
 }

@@ -1,5 +1,5 @@
 
-import ErrorMessage from "../../components/ErrorMessage/errorMessage";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import NanniesList from "../../components/NanniesList/NanniesList";
 import Modal from "../../components/Modal/Modal";
 import Appointment from "../../components/Appointment/Appointment";
@@ -23,6 +23,8 @@ export default function Nannies() {
     placeholderData: keepPreviousData,
   });
 
+  console.log("DATA FROM QUERY:", data);
+
   const filteredData = useMemo(() => {
     if (!data) return [];
 
@@ -30,10 +32,10 @@ export default function Nannies() {
 
     switch (filter) {
       case "A to Z":
-        sorted.sort((a, b) => a.name.localeCompare(b.name));
+        sorted.sort((a, b) => (a.name ?? "").localeCompare(b.name ?? ""));
         break;
       case "Z to A":
-        sorted.sort((a, b) => b.name.localeCompare(a.name));
+        sorted.sort((a, b) => (b.name ?? "").localeCompare(a.name ?? ""));
         break;
       case "Less than 10$":
         sorted = sorted.filter((nanny) => nanny.price_per_hour < 10);
