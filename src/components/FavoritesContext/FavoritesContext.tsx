@@ -23,7 +23,7 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
         setFavorites([]);
       }
     };
-
+    
     loadFavorites();
   }, [user]);
 

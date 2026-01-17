@@ -23,8 +23,6 @@ export default function Nannies() {
     placeholderData: keepPreviousData,
   });
 
-  console.log("DATA FROM QUERY:", data);
-
   const filteredData = useMemo(() => {
     if (!data) return [];
 

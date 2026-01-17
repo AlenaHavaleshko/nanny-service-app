@@ -1,0 +1,26 @@
+.favorites {
+  background: #f3f3f3;
+  padding: 152px 128px 100px 128px;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  border-radius: 30px;
+  padding: 14px 40px;
+  background: #f03f3b;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+  cursor: pointer;
+  border: none;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn:hover {
+  color: #f03f3b;
+  background: #fbfbfb;
+}

@@ -31,7 +31,7 @@ export default function Header({ setModalType, page }: HeaderProps) {
   };
 
   const headerStyle: React.CSSProperties = {
-    backgroundColor: page === "/nannies" ? "red" : "transparent",
+    backgroundColor: page === "/nannies" || page === "/favorites" ? "#F03F3B" : "transparent",
   };
 
   return (
