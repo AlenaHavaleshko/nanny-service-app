@@ -54,11 +54,13 @@ export default function Header({ setModalType, page }: HeaderProps) {
                 Nannies
               </Link>
             </li>
-            <li>
-              <Link className={css.nav_text} to="/favorites">
-                Favorites
-              </Link>
-            </li>
+            {user && (
+              <li>
+                <Link className={css.nav_text} to="/favorites">
+                  Favorites
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
         {user ? (

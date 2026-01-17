@@ -34,9 +34,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         displayName: name,
       });
       setUser(userCredential.user);
-    } catch (error: any) {
+    } catch (error) {
       console.error("Sign up error:", error);
-      throw new Error(error.message || "Failed to create account");
+      throw new Error(
+        error instanceof Error ? error.message : "Failed to create account"
+      );
     }
   };
 
@@ -48,9 +50,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         password
       );
       setUser(userCredential.user);
-    } catch (error: any) {
+    } catch (error) {
       console.error("Sign in error:", error);
-      throw new Error(error.message || "Failed to sign in");
+      throw new Error(
+        error instanceof Error ? error.message : "Failed to sign in"
+      );
     }
   };
 

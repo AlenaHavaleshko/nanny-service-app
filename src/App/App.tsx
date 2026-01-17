@@ -8,6 +8,7 @@ import Login from "../components/Login/Login";
 import Registration from "../components/Registration/Registration";
 import Modal from "../components/Modal/Modal";
 import { useModal } from "../components/ModalContext/UseModal";
+import { ProtectedRoute } from "../components/ProtectedRoute/ProtectedRoute";
 import { useState } from "react";
 
 function App() {
@@ -35,7 +36,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/nannies" element={<Nannies />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route
+          path="/favorites"
+          element={
+            <ProtectedRoute>
+              <Favorites />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );
