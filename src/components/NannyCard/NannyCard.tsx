@@ -1,6 +1,8 @@
 import css from "./NannyCard.module.css";
 import type { Nanny } from "../../types/types";
 import { useModal } from "../ModalContext/UseModal";
+import { useFavorites } from "../FavoritesContext/useFavorites";
+import { useAuth } from "../AuthContext/useAuth";
 import { useState } from "react";
 
 interface NannyProps {
@@ -9,8 +11,15 @@ interface NannyProps {
 
 export default function NannyCard({ nanny }: NannyProps) {
   const { openModal } = useModal();
-
+  const { toggleFavorite, isFavorite } = useFavorites();
+  const { user } = useAuth();
   const [showReviews, setShowReviews] = useState(false);
+
+  const handleFavoriteClick = () => {
+    if (user) {
+      toggleFavorite(nanny.id);
+    }
+  };
 
   function calcAge(isoDate: string) {
     const birth = new Date(isoDate);
@@ -31,9 +40,17 @@ export default function NannyCard({ nanny }: NannyProps) {
 
   return (
     <div className={css.card}>
-      <button className={css.favor_btn}>
+      <button
+        className={css.favor_btn}
+        onClick={handleFavoriteClick}
+        disabled={!user}
+      >
         <svg className={css.favorite_icon} width={26} height={26}>
-          <use href="/sprite.svg#icon-favor"></use>
+          <use
+            href={`/sprite.svg#${
+              isFavorite(nanny.id) ? "icon-Property-1Hover" : "icon-favor"
+            }`}
+          ></use>
         </svg>
       </button>
       <div className={css.image_box}>
@@ -130,12 +147,15 @@ export default function NannyCard({ nanny }: NannyProps) {
                       {review.reviewer.slice(0, 5)}.
                     </p>
                     <div className={css.name_wrapper}>
-                      <svg className={css.name_full_icon} width={16} height={16}>
+                      <svg
+                        className={css.name_full_icon}
+                        width={16}
+                        height={16}
+                      >
                         <use href="/sprite.svg#icon-star"></use>
                       </svg>
                       <p className={css.name_full_text}>{review.rating}</p>
                     </div>
-                    
                   </div>
                 </div>
                 <p className={css.review_comment}>{review.comment}</p>

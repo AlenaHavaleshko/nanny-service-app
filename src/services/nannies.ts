@@ -10,5 +10,8 @@ export async function getNannies(): Promise<Nanny[]> {
 
   if (!data) return [];
 
-  return Object.values(data);
+  return Object.entries(data).map(([key, nanny]: [string, any]) => ({
+    ...nanny,
+    id: key,
+  }));
 }
