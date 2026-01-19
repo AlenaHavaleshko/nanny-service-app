@@ -39,8 +39,8 @@ export default function Login() {
       setError("");
       await signIn(data.email, data.password);
       closeModal();
-    } catch (err: any) {
-      setError(err.message || "Failed to log in");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Failed to log in");
     }
   };
 

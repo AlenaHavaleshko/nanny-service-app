@@ -82,15 +82,15 @@ export default function Appointment() {
         <div className={css.nanny_photo}>
           <img
             className={css.avatar}
-            // src={nanny.avatar_ur}
-            // alt={nanny}
+            src={nanny.avatar_ur}
+            alt={nanny}
             width={44}
             height={44}
           ></img>
         </div>
         <div className={css.nanny_name}>
-          <p className={css.nanny_name_text}>Nanny</p>
-          {/* <p className={css.nanny_name_name}>{nanny.name}</p> */}
+          <p className={css.nanny_name_text}>Your nanny</p>
+            
         </div>
       </div>
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>

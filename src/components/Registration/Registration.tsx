@@ -44,8 +44,8 @@ export default function Registration() {
       setError("");
       await signUp(data.email, data.password, data.name);
       closeModal();
-    } catch (err: any) {
-      setError(err.message || "Failed to create account");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Failed to create account");
     }
   };
 
