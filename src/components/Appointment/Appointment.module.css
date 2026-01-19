@@ -13,8 +13,8 @@
 
 .btn_close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 0px;
+  right: 0px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -67,21 +67,33 @@
 .nanny_photo {
   border-radius: 15px;
 }
+.avatar {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 15px;
+}
 
 .nanny_name_text {
   font-weight: 500;
   font-size: 12px;
   line-height: 133%;
   color: #8a8a89;
+  margin: 0;
 }
 
-.nanny_name_name {
+.nanny_name_value {
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
   color: #11101c;
+  margin: 0;
+  margin-top: 4px;
 }
-
+.nanny_name {
+  display: flex;
+  flex-direction: column;
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -93,8 +105,14 @@
   gap: 8px;
 }
 
-.input_row {
+.form_row label {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.input_row {
+  width: 100%;
   border: 1px solid rgba(17, 16, 28, 0.1);
   border-radius: 12px;
   padding: 0 16px;
@@ -104,6 +122,7 @@
 
 .color_text {
   color: #f03f3b;
+  margin: 0;
 }
 
 .input {

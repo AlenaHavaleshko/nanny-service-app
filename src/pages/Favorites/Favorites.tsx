@@ -13,7 +13,7 @@ import css from "./Favorites.module.css";
 const pageSize = 3;
 
 export default function Favorites() {
-  const { closeModal, isModalOpen } = useModal();
+  const { closeModal, isModalOpen, selectedNanny } = useModal();
   const [currentPage, setCurrentPage] = useState(3);
   const [filter, setFilter] = useState("Show all");
   const { favorites } = useFavorites();
@@ -76,7 +76,7 @@ export default function Favorites() {
       )}
       {isModalOpen && (
         <Modal onClose={closeModal}>
-          <Appointment />
+          <Appointment nanny={selectedNanny ?? undefined} />
         </Modal>
       )}
       {isLoading && <p>Loading..</p>}

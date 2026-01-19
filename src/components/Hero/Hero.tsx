@@ -1,6 +1,13 @@
 import css from "./Hero.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate("/nannies");
+  };
+
   return (
     <div className={css.hero}>
       <div className={css.hero_left}>
@@ -11,7 +18,7 @@ export default function Hero() {
               Find Babysitters Online for All Occasions
             </p>
           </div>
-          <button className={css.btn}>
+          <button className={css.btn} onClick={handleGetStarted}>
             Get started<span className={css.spn}>↗</span>
           </button>
         </div>

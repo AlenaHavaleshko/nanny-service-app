@@ -10,7 +10,7 @@ interface NannyProps {
 }
 
 export default function NannyCard({ nanny }: NannyProps) {
-  const { openModal } = useModal();
+  const { openModalWithNanny, showNotification } = useModal();
   const { toggleFavorite, isFavorite } = useFavorites();
   const { user } = useAuth();
   const [showReviews, setShowReviews] = useState(false);
@@ -18,7 +18,15 @@ export default function NannyCard({ nanny }: NannyProps) {
   const handleFavoriteClick = () => {
     if (user) {
       toggleFavorite(nanny.id);
+    } else {
+      showNotification(
+        "This functionality is available only to authorized users. Please log in or register."
+      );
     }
+  };
+
+  const handleAppointmentClick = () => {
+    openModalWithNanny(nanny);
   };
 
   function calcAge(isoDate: string) {
@@ -40,11 +48,7 @@ export default function NannyCard({ nanny }: NannyProps) {
 
   return (
     <div className={css.card}>
-      <button
-        className={css.favor_btn}
-        onClick={handleFavoriteClick}
-        disabled={!user}
-      >
+      <button className={css.favor_btn} onClick={handleFavoriteClick}>
         <svg className={css.favorite_icon} width={26} height={26}>
           <use
             href={`/sprite.svg#${
@@ -165,7 +169,11 @@ export default function NannyCard({ nanny }: NannyProps) {
         )}
         {showReviews && (
           <div className={css.btn}>
-            <button type="button" className={css.card_btn} onClick={openModal}>
+            <button
+              type="button"
+              className={css.card_btn}
+              onClick={handleAppointmentClick}
+            >
               Make an appointment
             </button>
           </div>

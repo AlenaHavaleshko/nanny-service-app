@@ -3,6 +3,11 @@ import { useModal } from "../ModalContext/UseModal";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import type { Nanny } from "../../types/types";
+
+interface AppointmentProps {
+  nanny?: Nanny;
+}
 
 interface AppointmentFormData {
   address: string;
@@ -35,12 +40,12 @@ export const AppointmentSchema = Yup.object().shape({
     .required("Email is required"),
 
   text: Yup.string()
-    .min(5, "Text must be at least 5 characters")
+    .min(5, "Text must be at least 3 characters")
     .required("Text is required"),
   comment: Yup.string().optional().required("Comment is required"),
 });
 
-export default function Appointment() {
+export default function Appointment({ nanny }: AppointmentProps = {}) {
   const { closeModal } = useModal();
 
   const {
@@ -78,37 +83,43 @@ export default function Appointment() {
           below so we can match you with the perfect care partner.
         </p>
       </div>
-      <div className={css.nanny_info}>
-        <div className={css.nanny_photo}>
-          <img
-            className={css.avatar}
-            src={nanny.avatar_ur}
-            alt={nanny}
-            width={44}
-            height={44}
-          ></img>
+      {nanny && (
+        <div className={css.nanny_info}>
+          <div className={css.nanny_photo}>
+            <img
+              className={css.avatar}
+              src={nanny.avatar_url}
+              alt={nanny.name}
+              width={44}
+              height={44}
+            ></img>
+          </div>
+          <div className={css.nanny_name}>
+            <p className={css.nanny_name_text}>Your nanny</p>
+            <p className={css.nanny_name_value}>{nanny.name}</p>
+          </div>
         </div>
-        <div className={css.nanny_name}>
-          <p className={css.nanny_name_text}>Your nanny</p>
-            
-        </div>
-      </div>
+      )}
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={css.form_row}>
-          <input
-            {...register("text")}
-            className={css.input_row}
-            type="text"
-            placeholder="Address"
-          ></input>
-          <p className={css.color_text}>{errors.address?.message}</p>
-          <input
-            {...register("tel")}
-            className={css.input_row}
-            type="tel"
-            placeholder="+380"
-          ></input>
-          <p className={css.color_text}>{errors.tel?.message}</p>
+          <label>
+            <input
+              {...register("address")}
+              className={css.input_row}
+              type="text"
+              placeholder="Address"
+            ></input>
+            <p className={css.color_text}>{errors.address?.message}</p>
+          </label>
+          <label>
+            <input
+              {...register("tel")}
+              className={css.input_row}
+              type="tel"
+              placeholder="+380"
+            ></input>
+            <p className={css.color_text}>{errors.tel?.message}</p>
+          </label>
         </div>
         <div className={css.form_row}>
           <label>
@@ -118,9 +129,9 @@ export default function Appointment() {
               type="number"
               placeholder="Child's age"
             ></input>
+            <p className={css.color_text}>{errors.number?.message}</p>
           </label>
           <label>
-            <p className={css.color_text}>{errors.number?.message}</p>
             <input
               {...register("meetingTime")}
               className={css.input_row}

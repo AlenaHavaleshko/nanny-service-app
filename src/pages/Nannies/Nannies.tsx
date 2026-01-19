@@ -1,4 +1,3 @@
-
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import NanniesList from "../../components/NanniesList/NanniesList";
 import Modal from "../../components/Modal/Modal";
@@ -13,7 +12,7 @@ import css from "./Nannies.module.css";
 const pageSize = 3;
 
 export default function Nannies() {
-  const { closeModal, isModalOpen } = useModal();
+  const { closeModal, isModalOpen, selectedNanny } = useModal();
   const [currentPage, setCurrentPage] = useState(3);
   const [filter, setFilter] = useState("Show all");
 
@@ -72,7 +71,7 @@ export default function Nannies() {
       )}
       {isModalOpen && (
         <Modal onClose={closeModal}>
-          <Appointment />
+          <Appointment nanny={selectedNanny ?? undefined} />
         </Modal>
       )}
       {isLoading && <p>Loading..</p>}

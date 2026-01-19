@@ -1,73 +1,65 @@
-# React + TypeScript + Vite
+👶 Nanny.Services
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Nanny.Services — це сучасний веб-додаток для пошуку та вибору нянь. Користувач може переглядати анкети, додавати улюблених нянь до списку обраних і залишати запит на зустріч.
+Проєкт створено з використанням React та TypeScript, а для авторизації й зберігання даних використовується Firebase.
 
-Currently, two official plugins are available:
+🌟 Основні можливості:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔎 Перегляд списку нянь з бази даних
+🗂 Фільтрація та сортування (місто, рейтинг, вартість послуг тощо)
+⭐ Додавання нянь до списку обраних
+🔐 Реєстрація, вхід та вихід користувача (Firebase Authentication)
+💬 Створення заявки на зустріч через модальне вікно
+📱 Адаптивний дизайн для мобільних та десктопних пристроїв
+💾 Збереження Favorites у Firebase Realtime Database
+🚀 Робота з реальним бекендом (Firebase Realtime Database)
+🎨 Продуманий UX: кастомне мобільне меню та система модалок
 
-## React Compiler
+🧩 Стек технологій
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+React + TypeScript -- Побудова інтерфейсу та типізація
+React Router -- Навігація між сторінками
+React Query -- Отримання та кешування даних
+Firebase Auth -- Авторизація користувачів
+Firebase Realtime DB -- Зберігання даних нянь та обраних
+Context API -- Глобальний стан та модальні вікна
+CSS Modules -- Ізольовані стилі компонентів
+Axios HTTP -- запити
 
-## Expanding the ESLint configuration
+🚀 Запуск локально
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Клонуйте репозиторій:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+https://github.com/AlenaHavaleshko/nanny-service-app.git
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Перейдіть у папку проєкту:
+cd nanny-services
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Встановіть залежності:
+npm install
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Запустіть проєкт:
+npm run dev
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Після запуску додаток буде доступний за адресою:
+👉 http://localhost:5173
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+👤 Авторизація користувача
+
+Реалізовано:
+
+реєстрацію
+логін
+логаут
+збереження сесії користувача
+відображення імені в хедері
+⭐ Обрані няні
+Список Favorites зберігається у Firebase Realtime Database для кожного користувача окремо. Дані синхронізуються між пристроями та зберігаються навіть після перезавантаження сторінки.
+
+🖥 Деплой
+
+Проєкт готовий до розгортання на таких платформах:
+
+Vercel
+Netlify
+Firebase Hosting

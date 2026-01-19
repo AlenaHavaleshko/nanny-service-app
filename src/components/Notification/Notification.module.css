@@ -1,0 +1,62 @@
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.content {
+  background: #fff;
+  border: 1px solid #f03f3b;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.message {
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: #11101c;
+  flex: 1;
+}
+
+.close_btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.close_icon {
+  stroke: #11101c;
+  stroke-width: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.close_btn:hover .close_icon {
+  stroke: #f03f3b;
+}
