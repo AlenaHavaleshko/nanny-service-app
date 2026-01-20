@@ -19,8 +19,6 @@ function App() {
     "login" | "register" | "appointment" | null
   >(null);
 
-  console.log(import.meta.env.VITE_FIREBASE_API_KEY);
-
   const location = useLocation();
   const page = location.pathname;
 

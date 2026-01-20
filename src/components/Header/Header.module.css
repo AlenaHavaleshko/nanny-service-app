@@ -1,5 +1,5 @@
 .header {
-  padding: 10px 120px;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -197,18 +197,14 @@
 }
 
 /* Tablet and Desktop styles */
-@media screen and (min-width: 980px) {
-
-  .header {
-    padding: 10px 100px;
-    top: 32px;
-    left: 32px;
-    right: 32px;
-    border-bottom: 1px solid rgba(251, 251, 251, 0.4);
-  }
-
+@media screen and (min-width: 950px) {
   .burger_btn {
     display: none;
+  }
+
+  .header {
+    padding: 20px 96px;
+    border-bottom: 1px solid rgba(251, 251, 251, 0.4);
   }
 
   .menu {
@@ -242,18 +238,13 @@
   }
 
   .btn_logout {
-  padding: 14px 39px;
-}
-
-.logo_text {
-    font-size: 24px;
-    margin-right: 12px;
+    padding: 12px 20px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .header {
-    padding: 20px 100px;
+    padding: 20px 66px;
     top: 32px;
     left: 32px;
     right: 32px;

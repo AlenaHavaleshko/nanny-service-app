@@ -161,7 +161,6 @@
 .form_btn {
   background: var(--primary-color);
   border-radius: 30px;
-  padding: 16px 217px;
   border: none;
   font-weight: 500;
   font-size: 16px;
@@ -170,6 +169,7 @@
   color: #fbfbfb;
   cursor: pointer;
   margin-top: 24px;
+  padding: 16px 170px;
 }
 
 .form_btn:hover {

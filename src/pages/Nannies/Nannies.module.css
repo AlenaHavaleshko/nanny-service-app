@@ -24,3 +24,9 @@
   color: var(--primary-color);
   background: #fbfbfb;
 }
+
+@media screen and (max-width: 980px) {
+  .nannies {
+    padding: 100px 20px 50px 20px;
+  }
+}

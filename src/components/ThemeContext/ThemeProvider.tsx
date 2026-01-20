@@ -10,6 +10,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
+
+    // Update favicon based on theme
+    const favicon = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+    if (favicon) {
+      favicon.href = `/heart-favicon-${theme}.svg`;
+    }
   }, [theme]);
 
   const setTheme = (newTheme: ThemeType) => {

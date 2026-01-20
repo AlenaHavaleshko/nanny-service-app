@@ -140,7 +140,7 @@ export default function Appointment({ nanny }: AppointmentProps = {}) {
             <input
               {...register("meetingTime")}
               className={css.input_row}
-              type="text"
+              type="time"
               placeholder="00:00"
               maxLength={5}
             ></input>
