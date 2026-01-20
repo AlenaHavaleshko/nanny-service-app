@@ -6,6 +6,7 @@ ul {
 
 :root {
   --font-family: "Helvetica Neue", sans-serif;
+  --primary-color: #f03f3b;
 }
 
 body {

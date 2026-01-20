@@ -221,7 +221,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
-  color: #f03f3b;
+  color: var(--primary-color);
   text-align: center;
   margin: 12px 0 0 0;
 }
@@ -278,12 +278,12 @@
   padding: 14px 28px;
   width: 215px;
   height: 48px;
-  background: #f03f3b;
+  background: var(--primary-color);
   cursor: pointer;
   border: none;
 }
 
 .card_btn:hover {
-  color: #f03f3b;
+  color: var(--primary-color);
   background: #fbfbfb;
 }

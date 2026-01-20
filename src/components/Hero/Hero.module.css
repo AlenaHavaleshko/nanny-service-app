@@ -22,7 +22,7 @@
 }
 
 .hero_left {
-  background: #f03f3b;
+  background: var(--primary-color);
   padding-top: 251px;
   padding-bottom: 163px;
   padding-left: 96px;
@@ -67,7 +67,7 @@
 }
 
 .btn:hover {
-  color: #f03f3b;
+  color: var(--primary-color);
   background: #fbfbfb;
 }
 
@@ -107,7 +107,7 @@
   border-radius: 13px;
   width: 54px;
   height: 54px;
-  background: #f03f3b;
+  background: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;

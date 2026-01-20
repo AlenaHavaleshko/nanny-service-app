@@ -121,7 +121,7 @@
 }
 
 .color_text {
-  color: #f03f3b;
+  color: var(--primary-color);
   margin: 0;
 }
 
@@ -159,7 +159,7 @@
 }
 
 .form_btn {
-  background: #f03f3b;
+  background: var(--primary-color);
   border-radius: 30px;
   padding: 16px 217px;
   border: none;
@@ -173,6 +173,6 @@
 }
 
 .form_btn:hover {
-  color: #f03f3b;
+  color: var(--primary-color);
   background: #fbfbfb;
 }

@@ -22,11 +22,11 @@
 }
 
 .select_button_open {
-  border-color: #f03f3b;
+  border-color: var(--primary-color);
 }
 
 .select_button_error {
-  border-color: #f03f3b;
+  border-color: var(--primary-color);
 }
 
 .selected_text {
@@ -87,7 +87,7 @@
 }
 
 .option_selected {
-  color: #f03f3b;
+  color: var(--primary-color);
   font-weight: 500;
   background: rgba(240, 63, 59, 0.1);
 }

@@ -19,7 +19,7 @@
 
 .content {
   background: #fff;
-  border: 1px solid #f03f3b;
+  border: 1px solid var(--primary-color);
   border-radius: 12px;
   padding: 16px 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -58,5 +58,5 @@
 }
 
 .close_btn:hover .close_icon {
-  stroke: #f03f3b;
+  stroke: var(--primary-color);
 }

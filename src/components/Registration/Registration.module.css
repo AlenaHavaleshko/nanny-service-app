@@ -59,7 +59,7 @@
 }
 
 .color_text {
-  color: #f03f3b;
+  color: var(--primary-color);
 }
 
 .input {
@@ -88,7 +88,7 @@
   line-height: 125%;
   letter-spacing: -0.01em;
   color: #fbfbfb;
-  background: #f03f3b;
+  background: var(--primary-color);
   border-radius: 30px;
   border: none;
   cursor: pointer;
@@ -96,6 +96,6 @@
 }
 
 .btn_signup:hover {
-  color: #f03f3b;
+  color: var(--primary-color);
   background: #fbfbfb;
 }

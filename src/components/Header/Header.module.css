@@ -13,6 +13,10 @@
   border-bottom: 1px solid rgba(251, 251, 251, 0.4);
 }
 
+.header_colored {
+  background-color: var(--primary-color);
+}
+
 .logo_text {
   font-weight: 500;
   font-size: 24px;
@@ -69,18 +73,18 @@
   color: #fbfbfb;
   border-radius: 30px;
   padding: 14px 40px;
-  background: #f03f3b;
+  background: var(--primary-color);
   cursor: pointer;
   border: none;
 }
 
 .btn_registration:hover {
-  color: #f03f3b;
+  color: var(--primary-color);
   background: #fbfbfb;
 }
 
 .btn_log:hover {
-  color: #f03f3b;
+  color: var(--primary-color);
   background: #fbfbfb;
 }
 
@@ -128,6 +132,6 @@
 }
 
 .btn_logout:hover {
-  color: #f03f3b;
+  color: var(--primary-color);
   background: #fbfbfb;
 }

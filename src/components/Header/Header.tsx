@@ -30,12 +30,10 @@ export default function Header({ setModalType, page }: HeaderProps) {
     }
   };
 
-  const headerStyle: React.CSSProperties = {
-    backgroundColor: page === "/nannies" || page === "/favorites" ? "#F03F3B" : "transparent",
-  };
+  const isColoredPage = page === "/nannies" || page === "/favorites";
 
   return (
-    <div className={css.header} style={headerStyle}>
+    <div className={`${css.header} ${isColoredPage ? css.header_colored : ""}`}>
       <div className={css.logo}>
         <Link to="/home" aria-label="Home" className={css.logo_text}>
           Nanny.Services
