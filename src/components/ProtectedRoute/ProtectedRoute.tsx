@@ -1,7 +1,12 @@
 import { Navigate } from "react-router-dom";
+import type { ReactNode } from "react";
 import { useAuth } from "../AuthContext/useAuth";
 
-export function ProtectedRoute({ children }: { children: JSX.Element }) {
+type ProtectedRouteProps = {
+  children: ReactNode;
+};
+
+export function ProtectedRoute({ children }: ProtectedRouteProps) {
   const { user, loading } = useAuth();
 
   if (loading) {
@@ -12,5 +17,5 @@ export function ProtectedRoute({ children }: { children: JSX.Element }) {
     return <Navigate to="/home" replace />;
   }
 
-  return children;
+  return <>{children}</>;
 }
