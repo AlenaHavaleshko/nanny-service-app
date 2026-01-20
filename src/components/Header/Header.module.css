@@ -1,5 +1,5 @@
 .header {
-  padding: 20px 96px;
+  padding: 10px 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -200,7 +200,7 @@
 @media screen and (min-width: 980px) {
 
   .header {
-    padding: 5px 40px;
+    padding: 10px 100px;
     top: 32px;
     left: 32px;
     right: 32px;
@@ -253,7 +253,7 @@
 
 @media screen and (min-width: 1440px) {
   .header {
-    padding: 20px 66px;
+    padding: 20px 100px;
     top: 32px;
     left: 32px;
     right: 32px;
