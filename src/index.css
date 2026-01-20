@@ -9,6 +9,18 @@ ul {
   --primary-color: #f03f3b;
 }
 
+:root[data-theme="red"] {
+  --primary-color: #f03f3b;
+}
+
+:root[data-theme="blue"] {
+  --primary-color: #0957c3;
+}
+
+:root[data-theme="green"] {
+  --primary-color: #103931;
+}
+
 body {
   font-family: var(--font-family);
   margin: 0;

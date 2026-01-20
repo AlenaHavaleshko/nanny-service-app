@@ -8,6 +8,7 @@ import Login from "../components/Login/Login";
 import Registration from "../components/Registration/Registration";
 import Modal from "../components/Modal/Modal";
 import Notification from "../components/Notification/Notification";
+import ThemeSwitcher from "../components/ThemeSwitcher/ThemeSwitcher";
 import { useModal } from "../components/ModalContext/UseModal";
 import { ProtectedRoute } from "../components/ProtectedRoute/ProtectedRoute";
 import { useState } from "react";
@@ -27,6 +28,7 @@ function App() {
     <div className={css.app_container}>
       <Header setModalType={setModalType} page={page} />
       <Notification />
+      <ThemeSwitcher />
       {isModalOpen && (
         <Modal onClose={closeModal}>
           {modalType === "login" && <Login />}
