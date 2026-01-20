@@ -2,7 +2,6 @@ import { useFavorites } from "../../components/FavoritesContext/useFavorites";
 import { getNannies } from "../../services/nannies";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import NanniesList from "../../components/NanniesList/NanniesList";
-import ErrorMessage from "../../components/ErrorMessage";
 import Modal from "../../components/Modal/Modal";
 import { useState, useMemo } from "react";
 import { useModal } from "../../components/ModalContext/UseModal";
@@ -80,7 +79,7 @@ export default function Favorites() {
         </Modal>
       )}
       {isLoading && <p>Loading..</p>}
-      {isError && <ErrorMessage />}
+      {isError && <p>Error loading favorite nannies.</p>}
       {!isLoading && !isError && favoriteNannies.length === 0 && (
         <p style={{ textAlign: "center", marginTop: "40px" }}>
           No favorite nannies yet. Add some from the Nannies page!

@@ -1,4 +1,4 @@
-import ErrorMessage from "../../components/ErrorMessage";
+
 import NanniesList from "../../components/NanniesList/NanniesList";
 import Modal from "../../components/Modal/Modal";
 import Appointment from "../../components/Appointment/Appointment";
@@ -75,7 +75,7 @@ export default function Nannies() {
         </Modal>
       )}
       {isLoading && <p>Loading..</p>}
-      {isError && <ErrorMessage />}
+      {isError && <p>Error loading nannies.</p>}
       {filteredData && currentPage < filteredData.length && (
         <button type="button" className={css.btn} onClick={handleReadMore}>
           Read more
