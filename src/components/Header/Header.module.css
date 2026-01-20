@@ -1,13 +1,13 @@
 .header {
-  padding: 20px 128px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 2;
   position: absolute;
-  top: 32px;
-  left: 32px;
-  right: 32px;
+  top: 16px;
+  left: 16px;
+  right: 16px;
   background-color: transparent;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(251, 251, 251, 0.4);
@@ -19,23 +19,72 @@
 
 .logo_text {
   font-weight: 500;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 117%;
   letter-spacing: -0.02em;
   color: #fbfbfb;
   text-decoration: none;
 }
 
-.menu {
+.burger_btn {
   display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.burger_line {
+  width: 24px;
+  height: 2px;
+  background-color: #fbfbfb;
+  transition: all 0.3s ease;
+}
+
+.burger_line.burger_open:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.burger_line.burger_open:nth-child(2) {
+  opacity: 0;
+}
+
+.burger_line.burger_open:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 320px;
+  height: 100vh;
+  background: var(--primary-color);
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 92px;
+  justify-content: center;
+  gap: 40px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.menu_open {
+  right: 0;
 }
 
 .navigation {
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+  gap: 24px;
   margin: 0;
+  align-items: center;
+  list-style: none;
+  padding: 0;
 }
 
 .nav_text {
@@ -49,7 +98,11 @@
 
 .registration {
   display: flex;
-  gap: 8px;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+  max-width: 250px;
 }
 
 .btn_log {
@@ -90,8 +143,11 @@
 
 .user_profile {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
+  width: 100%;
+  max-width: 250px;
 }
 
 .user_info {
@@ -104,9 +160,13 @@
 }
 
 .user_icon {
-  fill: #fbfbfb;
-  width: 24px;
-  height: 24px;
+  fill: var(--primary-color);
+  border: 1px solid #fbfbfb;
+  background-color: #fbfbfb;
+  border-radius: 25%;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
 }
 
 .user_name {
@@ -134,4 +194,86 @@
 .btn_logout:hover {
   color: var(--primary-color);
   background: #fbfbfb;
+}
+
+/* Tablet and Desktop styles */
+@media screen and (min-width: 768px) {
+  .burger_btn {
+    display: none;
+  }
+
+  .menu {
+    position: static;
+    width: auto;
+    max-width: none;
+    height: auto;
+    background: transparent;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 60px;
+  }
+
+  .navigation {
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .registration {
+    flex-direction: row;
+    gap: 8px;
+    width: auto;
+    max-width: none;
+  }
+
+  .user_profile {
+    flex-direction: row;
+    gap: 14px;
+    width: auto;
+    max-width: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header {
+    padding: 20px 128px;
+    top: 32px;
+    left: 32px;
+    right: 32px;
+  }
+
+  .logo_text {
+    font-size: 24px;
+  }
+
+  .menu {
+    gap: 92px;
+  }
+
+  .navigation {
+    gap: 40px;
+  }
+
+  .nav_text {
+    font-size: 16px;
+  }
+
+  .btn_log,
+  .btn_registration,
+  .btn_logout {
+    font-size: 16px;
+    padding: 14px 39px;
+  }
+
+  .btn_registration {
+    padding: 14px 40px;
+  }
+
+  .user_icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .user_name {
+    font-size: 16px;
+  }
 }

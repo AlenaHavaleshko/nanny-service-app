@@ -1,3 +1,4 @@
+import { useState } from "react";
 import css from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { useModal } from "../ModalContext/UseModal";
@@ -11,20 +12,27 @@ interface HeaderProps {
 export default function Header({ setModalType, page }: HeaderProps) {
   const { openModal } = useModal();
   const { user, logout } = useAuth();
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
+
+  const toggleBurger = () => setIsBurgerOpen(!isBurgerOpen);
+  const closeBurger = () => setIsBurgerOpen(false);
 
   const openLogin = () => {
     setModalType("login");
     openModal();
+    closeBurger();
   };
 
   const openRegistration = () => {
     setModalType("register");
     openModal();
+    closeBurger();
   };
 
   const handleLogout = async () => {
     try {
       await logout();
+      closeBurger();
     } catch (error) {
       console.error("Failed to log out", error);
     }
@@ -39,22 +47,27 @@ export default function Header({ setModalType, page }: HeaderProps) {
           Nanny.Services
         </Link>
       </div>
-      <div className={css.menu}>
+      <button className={css.burger_btn} onClick={toggleBurger} aria-label="Toggle menu">
+        <span className={`${css.burger_line} ${isBurgerOpen ? css.burger_open : ""}`}></span>
+        <span className={`${css.burger_line} ${isBurgerOpen ? css.burger_open : ""}`}></span>
+        <span className={`${css.burger_line} ${isBurgerOpen ? css.burger_open : ""}`}></span>
+      </button>
+      <div className={`${css.menu} ${isBurgerOpen ? css.menu_open : ""}`}>
         <nav className={css.nav}>
           <ul className={css.navigation}>
             <li>
-              <Link className={css.nav_text} to="/home">
+              <Link className={css.nav_text} to="/home" onClick={closeBurger}>
                 Home
               </Link>
             </li>
             <li>
-              <Link className={css.nav_text} to="/nannies">
+              <Link className={css.nav_text} to="/nannies" onClick={closeBurger}>
                 Nannies
               </Link>
             </li>
             {user && (
               <li>
-                <Link className={css.nav_text} to="/favorites">
+                <Link className={css.nav_text} to="/favorites" onClick={closeBurger}>
                   Favorites
                 </Link>
               </li>
