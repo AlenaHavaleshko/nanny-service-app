@@ -13,8 +13,8 @@
 
 .btn_close {
   position: absolute;
-  top: 0px;
-  right: -5px;
+  top: -50px;
+  right: -50px;
   background: transparent;
   border: none;
   cursor: pointer;

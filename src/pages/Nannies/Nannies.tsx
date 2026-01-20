@@ -69,9 +69,9 @@ export default function Nannies() {
       {filteredData && (
         <NanniesList nannies={filteredData.slice(0, currentPage)} />
       )}
-      {isModalOpen && (
+      {isModalOpen && selectedNanny && (
         <Modal onClose={closeModal}>
-          <Appointment nanny={selectedNanny ?? undefined} />
+          <Appointment nanny={selectedNanny} />
         </Modal>
       )}
       {isLoading && <p>Loading..</p>}

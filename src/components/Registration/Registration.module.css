@@ -2,7 +2,6 @@
   position: relative;
   width: 100%;
   max-width: 565px;
-  padding: clamp(24px, 5vw, 64px);
   background: #fbfbfb;
   border-radius: 30px;
   display: flex;
@@ -13,8 +12,8 @@
 
 .btn_close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: -50px;
+  right: -50px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -55,7 +54,6 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
 .color_text {
