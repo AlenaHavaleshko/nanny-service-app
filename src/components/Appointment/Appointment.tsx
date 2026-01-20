@@ -33,7 +33,12 @@ export const AppointmentSchema = Yup.object().shape({
     .positive("Must be positive")
     .required("Number is required"),
 
-  meetingTime: Yup.string().required("Time is required"),
+  meetingTime: Yup.string()
+    .matches(
+      /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/,
+      "Please enter time in HH:MM format"
+    )
+    .required("Time is required"),
 
   email: Yup.string()
     .email("Invalid email format")
@@ -135,8 +140,9 @@ export default function Appointment({ nanny }: AppointmentProps = {}) {
             <input
               {...register("meetingTime")}
               className={css.input_row}
-              type="time"
+              type="text"
               placeholder="00:00"
+              maxLength={5}
             ></input>
             <p className={css.color_text}>{errors.meetingTime?.message}</p>
           </label>
