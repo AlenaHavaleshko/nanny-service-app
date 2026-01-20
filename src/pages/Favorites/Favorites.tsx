@@ -2,7 +2,7 @@ import { useFavorites } from "../../components/FavoritesContext/useFavorites";
 import { getNannies } from "../../services/nannies";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import NanniesList from "../../components/NanniesList/NanniesList";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage.tsx";
+import ErrorMessage from "../../components/ErrorMessage";
 import Modal from "../../components/Modal/Modal";
 import { useState, useMemo } from "react";
 import { useModal } from "../../components/ModalContext/UseModal";
