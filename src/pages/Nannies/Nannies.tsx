@@ -1,4 +1,4 @@
-import ErrorMessage from "../../components/ErrorMessage";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage.tsx";
 import NanniesList from "../../components/NanniesList/NanniesList";
 import Modal from "../../components/Modal/Modal";
 import Appointment from "../../components/Appointment/Appointment";

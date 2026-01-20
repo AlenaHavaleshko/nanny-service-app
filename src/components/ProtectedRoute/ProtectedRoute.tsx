@@ -6,7 +6,7 @@ type ProtectedRouteProps = {
   children: ReactNode;
 };
 
-export function ProtectedRoute({ children }: ProtectedRouteProps) {
+export function ProtectedRoute({ children }: ProtectedRouteProps): ReactNode {
   const { user, loading } = useAuth();
 
   if (loading) {
