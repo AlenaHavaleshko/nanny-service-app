@@ -84,6 +84,12 @@
   background-size: cover;
 }
 
+@media screen and (max-width: 980px) {
+  .hero_right {
+    display: none;
+  }
+}
+
 @media screen and (min-resolution: 2dppx) {
   .hero_right {
     background-image: url('/HeroImages/Rectangle-2-min.jpg');

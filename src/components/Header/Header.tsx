@@ -47,10 +47,20 @@ export default function Header({ setModalType, page }: HeaderProps) {
           Nanny.Services
         </Link>
       </div>
-      <button className={css.burger_btn} onClick={toggleBurger} aria-label="Toggle menu">
-        <span className={`${css.burger_line} ${isBurgerOpen ? css.burger_open : ""}`}></span>
-        <span className={`${css.burger_line} ${isBurgerOpen ? css.burger_open : ""}`}></span>
-        <span className={`${css.burger_line} ${isBurgerOpen ? css.burger_open : ""}`}></span>
+      <button
+        className={css.burger_btn}
+        onClick={toggleBurger}
+        aria-label="Toggle menu"
+      >
+        <span
+          className={`${css.burger_line} ${isBurgerOpen ? css.burger_open : ""}`}
+        ></span>
+        <span
+          className={`${css.burger_line} ${isBurgerOpen ? css.burger_open : ""}`}
+        ></span>
+        <span
+          className={`${css.burger_line} ${isBurgerOpen ? css.burger_open : ""}`}
+        ></span>
       </button>
       <div className={`${css.menu} ${isBurgerOpen ? css.menu_open : ""}`}>
         <nav className={css.nav}>
@@ -61,13 +71,21 @@ export default function Header({ setModalType, page }: HeaderProps) {
               </Link>
             </li>
             <li>
-              <Link className={css.nav_text} to="/nannies" onClick={closeBurger}>
+              <Link
+                className={css.nav_text}
+                to="/nannies"
+                onClick={closeBurger}
+              >
                 Nannies
               </Link>
             </li>
             {user && (
               <li>
-                <Link className={css.nav_text} to="/favorites" onClick={closeBurger}>
+                <Link
+                  className={css.nav_text}
+                  to="/favorites"
+                  onClick={closeBurger}
+                >
                   Favorites
                 </Link>
               </li>
