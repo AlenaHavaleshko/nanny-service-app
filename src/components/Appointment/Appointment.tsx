@@ -36,7 +36,7 @@ export const AppointmentSchema = Yup.object().shape({
   meetingTime: Yup.string()
     .matches(
       /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/,
-      "Please enter time in HH:MM format"
+      "Please enter time in HH:MM format",
     )
     .required("Time is required"),
 
@@ -51,7 +51,7 @@ export const AppointmentSchema = Yup.object().shape({
 });
 
 export default function Appointment({ nanny }: AppointmentProps = {}) {
-  const { closeModal } = useModal();
+  const { closeModal, showNotification } = useModal();
 
   const {
     register,
@@ -66,6 +66,7 @@ export default function Appointment({ nanny }: AppointmentProps = {}) {
     console.log(data);
     reset();
     closeModal();
+    showNotification("Your appointment has been successfully sent!");
   };
   return (
     <div className={css.appointment}>
@@ -147,7 +148,7 @@ export default function Appointment({ nanny }: AppointmentProps = {}) {
             <p className={css.color_text}>{errors.meetingTime?.message}</p>
           </label>
         </div>
- 
+
         <label>
           <input
             {...register("email")}

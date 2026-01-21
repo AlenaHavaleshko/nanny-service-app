@@ -3,11 +3,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 2;
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  right: 16px;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   background-color: transparent;
   box-sizing: border-box;
   border-bottom: none;
@@ -203,7 +204,7 @@
   }
 
   .header {
-    padding: 20px 96px;
+    padding: 20px 130px;
     border-bottom: 1px solid rgba(251, 251, 251, 0.4);
   }
 
@@ -244,10 +245,7 @@
 
 @media screen and (min-width: 1440px) {
   .header {
-    padding: 20px 66px;
-    top: 32px;
-    left: 32px;
-    right: 32px;
+    padding: 20px 145px;
   }
 
   .logo_text {

@@ -18,8 +18,8 @@
 }
 
 .content {
-  background: #fff;
-  border: 1px solid var(--primary-color);
+  background: #22c55e;
+  border: 1px solid #16a34a;
   border-radius: 12px;
   padding: 16px 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -35,7 +35,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 125%;
-  color: #11101c;
+  color: #fff;
   flex: 1;
 }
 
@@ -51,12 +51,12 @@
 }
 
 .close_icon {
-  stroke: #11101c;
+  stroke: #fff;
   stroke-width: 2px;
   width: 16px;
   height: 16px;
 }
 
 .close_btn:hover .close_icon {
-  stroke: var(--primary-color);
+  stroke: #dcfce7;
 }
