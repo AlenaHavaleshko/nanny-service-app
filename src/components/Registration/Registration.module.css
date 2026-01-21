@@ -97,4 +97,5 @@
 .btn_signup:hover {
   color: var(--primary-color);
   background: #fbfbfb;
+  border: 1px solid var(--primary-color);
 }

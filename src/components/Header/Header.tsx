@@ -66,13 +66,17 @@ export default function Header({ setModalType, page }: HeaderProps) {
         <nav className={css.nav}>
           <ul className={css.navigation}>
             <li>
-              <Link className={css.nav_text} to="/home" onClick={closeBurger}>
+              <Link
+                className={`${css.nav_text} ${page === "/home" ? css.nav_active : ""}`}
+                to="/home"
+                onClick={closeBurger}
+              >
                 Home
               </Link>
             </li>
             <li>
               <Link
-                className={css.nav_text}
+                className={`${css.nav_text} ${page === "/nannies" ? css.nav_active : ""}`}
                 to="/nannies"
                 onClick={closeBurger}
               >
@@ -82,7 +86,7 @@ export default function Header({ setModalType, page }: HeaderProps) {
             {user && (
               <li>
                 <Link
-                  className={css.nav_text}
+                  className={`${css.nav_text} ${page === "/favorites" ? css.nav_active : ""}`}
                   to="/favorites"
                   onClick={closeBurger}
                 >
