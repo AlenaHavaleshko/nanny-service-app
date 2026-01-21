@@ -63,15 +63,18 @@
   max-width: 230px;
   background-color: transparent;
   cursor: pointer;
-}
-
-.btn:hover {
-  color: var(--primary-color);
-  background: #fbfbfb;
+  transition: all 0.3s ease;
 }
 
 .spn {
-  margin-left: 5px;
+  margin-left: 15px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+}
+
+.btn:hover .spn {
+  transform: rotate(45deg);
 }
 
 .hero_right {

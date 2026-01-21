@@ -52,7 +52,7 @@ export default function NannyCard({ nanny }: NannyProps) {
         <svg className={css.favorite_icon} width={27} height={27}>
           <use
             href={`/sprite.svg#${
-              isFavorite(nanny.id) ? "icon-Property-1Hover" : "icon-favor"
+              isFavorite(nanny.id) ? "icon-Property-1Hover" : "icon-favour-black"
             }`}
           ></use>
         </svg>

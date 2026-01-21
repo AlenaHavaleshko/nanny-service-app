@@ -19,6 +19,10 @@
   transition: transform 0.2s ease;
 }
 
+.favorite_icon {
+  stroke-width: 1;
+}
+
 .favor_btn:hover {
   transform: scale(1.1);
 }
@@ -282,11 +286,13 @@
   background: var(--primary-color);
   cursor: pointer;
   border: none;
+  transition: all 0.3s ease;
 }
 
 .card_btn:hover {
   color: var(--primary-color);
   background: #fbfbfb;
+  border: 1px solid var(--primary-color);
 }
 
 @media screen and (min-width: 320px) and (max-width: 980px) {

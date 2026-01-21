@@ -117,6 +117,7 @@
   padding: 14px 39px;
   background: transparent;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .btn_registration {
@@ -130,6 +131,7 @@
   background: var(--primary-color);
   cursor: pointer;
   border: none;
+  transition: all 0.3s ease;
 }
 
 .btn_registration:hover {
