@@ -25,6 +25,7 @@ body {
   font-family: var(--font-family);
   margin: 0;
   padding: 0;
+  background: #f3f3f3;
 }
 
 h1,
