@@ -2,9 +2,15 @@
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
-  margin: 0 auto;
-  min-height: 80vh;
-  width: 100%;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  z-index: 0;
 }
 
 .left_inner {
@@ -12,6 +18,8 @@
   display: flex;
   flex-direction: column;
   gap: 64px;
+  margin: 0 auto;
+  margin-top: 163px;
 }
 
 .inner_text {
@@ -24,7 +32,7 @@
   background: var(--primary-color);
   padding-top: 251px;
   padding-bottom: 163px;
-  padding-left: 130px;
+  padding-left: 100px;
 }
 
 .hero_left, 
@@ -108,6 +116,7 @@
   position: absolute;
   right: 50px;
   bottom: 50px;
+  border-radius: 20px;
 }
 
 .badge_icon {

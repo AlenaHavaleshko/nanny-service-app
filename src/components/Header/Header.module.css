@@ -1,7 +1,7 @@
 .header {
-  padding: 10px 20px;
+  padding: 10px 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   z-index: 1000;
   position: fixed;
@@ -12,6 +12,16 @@
   background-color: transparent;
   box-sizing: border-box;
   border-bottom: none;
+}
+
+.header_inner {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .header_colored {
@@ -220,8 +230,11 @@
   }
 
   .header {
-    padding: 20px 130px;
     border-bottom: 1px solid rgba(251, 251, 251, 0.4);
+  }
+
+  .header_inner {
+    padding: 20px 96px;
   }
 
   .menu {
@@ -260,8 +273,8 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .header {
-    padding: 20px 145px;
+  .header_inner {
+    padding: 20px 128px;
   }
 
   .logo_text {
